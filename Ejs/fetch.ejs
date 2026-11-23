@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <!-- <th>Id</th> -->
+        <th>Name</th>
+        <th>Action</th>
+        <% for(let re of result){%>
+
+            <tr>
+                <!-- <td> <%=re.id%></td> -->
+            <td><%=re.word%></td>
+
+<td>
+     <form action="/update/<%=re.id%>" method="get">
+<button type="submit">Update</button>
+     </form>
+       
+</td>
+<td>
+    <form action="/fetch/<%=re.id%>?_method=DELETE" method="post">
+        <div class="Deletedata">
+            <button type="submit">Delete</button>
+        </div>
+    </form>
+       
+</td>
+            </tr>
+
+
+            <%}%>
+
+    </table>
+    <form action="/fetch" method="post">
+        <div> 
+            <label for="user">UserName 
+        <input type="text" name="word" placeholder="Eneter name">
+        </label>
+        <button type="submit">insert</button>
+        </div>
+    </form>
+</body>
+</html>
